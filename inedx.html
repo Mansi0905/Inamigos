@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightPath Foundation – Empowering Youth Through Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --cream: #f5f0e8;
+    --saffron: #f4a916;
+    --rust: #c84b31;
+    --sage: #5a7a5e;
+    --sky: #ddeeff;
+    --paper: #faf7f2;
+    --mid: #6b6560;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 64px;
+    border-bottom: 3px solid var(--saffron);
+  }
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem; color: var(--cream);
+    letter-spacing: .08em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--saffron); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .85rem; font-weight: 500;
+    color: #ccc; text-decoration: none; letter-spacing: .06em;
+    text-transform: uppercase; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--saffron); }
+  .nav-cta {
+    background: var(--saffron); color: var(--ink);
+    padding: .45rem 1.2rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: .78rem; font-weight: 700; letter-spacing: .06em;
+    text-decoration: none; transition: background .2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: #ffbf30; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+    padding: 120px 5vw 80px;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(244,169,22,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244,169,22,.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,169,22,.18) 0%, transparent 70%);
+  }
+  .hero-circle.c1 { width: 700px; height: 700px; top: -200px; right: -100px; }
+  .hero-circle.c2 { width: 400px; height: 400px; bottom: -100px; left: 10%; }
+
+  .hero-inner { position: relative; z-index: 2; max-width: 1200px; width: 100%; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: rgba(244,169,22,.12); border: 1px solid rgba(244,169,22,.3);
+    padding: .4rem 1rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: .75rem; color: var(--saffron); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 2rem;
+    animation: fadeUp .8s .1s both;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 8px; height: 8px;
+    background: var(--saffron); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900; line-height: 1.0;
+    color: var(--cream);
+    animation: fadeUp .9s .25s both;
+  }
+  h1 em { font-style: italic; color: var(--saffron); }
+  h1 .stroke {
+    -webkit-text-stroke: 2px var(--cream);
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem; color: #aaa; line-height: 1.7;
+    max-width: 520px; margin-top: 1.8rem;
+    animation: fadeUp .9s .4s both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 2.5rem;
+    animation: fadeUp .9s .55s both;
+  }
+  .btn-primary {
+    background: var(--saffron); color: var(--ink);
+    padding: .8rem 2rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: .85rem; font-weight: 700;
+    text-decoration: none; transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,169,22,.3); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,.3); color: var(--cream);
+    padding: .8rem 2rem; border-radius: 2px;
+    font-family: 'Space Mono', monospace; font-size: .85rem;
+    text-decoration: none; transition: border-color .2s, color .2s;
+  }
+  .btn-outline:hover { border-color: var(--saffron); color: var(--saffron); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    margin-top: 4rem; padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+    animation: fadeUp .9s .7s both;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 700; color: var(--saffron);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: .78rem; color: #888; letter-spacing: .06em;
+    text-transform: uppercase; margin-top: .3rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 5vw; }
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem; color: var(--rust); letter-spacing: .12em;
+    text-transform: uppercase; margin-bottom: .8rem;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .section-tag::before { content: '//'; color: var(--saffron); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--ink);
+  }
+  h2 span { color: var(--rust); font-style: italic; }
+  .lead {
+    font-size: 1.05rem; color: var(--mid);
+    line-height: 1.75; max-width: 600px;
+    margin-top: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw; align-items: center;
+    margin-top: 3rem;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-frame {
+    background: var(--ink);
+    border-radius: 4px;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img-fill {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2014 40%, #3d2e0a 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+  }
+  .about-badge {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--saffron); color: var(--ink);
+    width: 120px; height: 120px; border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700;
+    line-height: 1; z-index: 2;
+    box-shadow: 0 8px 32px rgba(0,0,0,.15);
+  }
+  .about-badge small {
+    font-family: 'Space Mono', monospace;
+    font-size: .55rem; letter-spacing: .08em;
+    text-transform: uppercase; font-weight: 400;
+    margin-top: .2rem;
+  }
+  .about-content {}
+  .about-values {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.2rem; margin-top: 2rem;
+  }
+  .value-card {
+    background: white; border-radius: 4px;
+    padding: 1.2rem; border-left: 3px solid var(--saffron);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .value-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .value-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+  .value-title {
+    font-family: 'Space Mono', monospace;
+    font-size: .8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .05em;
+    margin-bottom: .3rem;
+  }
+  .value-desc { font-size: .85rem; color: var(--mid); line-height: 1.6; }
+
+  /* ── MISSION ── */
+  #mission {
+    background: var(--ink);
+    position: relative; overflow: hidden;
+  }
+  .mission-inner { position: relative; z-index: 2; }
+  .mission-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 700; font-style: italic;
+    color: var(--cream); line-height: 1.4;
+    max-width: 800px;
+    border-left: 4px solid var(--saffron);
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+  }
+  .mission-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .pillar {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: background .25s, border-color .25s;
+  }
+  .pillar:hover { background: rgba(244,169,22,.08); border-color: rgba(244,169,22,.3); }
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--saffron);
+    opacity: .3; line-height: 1; margin-bottom: .5rem;
+  }
+  .pillar-title {
+    font-family: 'Space Mono', monospace;
+    font-size: .85rem; color: var(--cream);
+    font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: .6rem;
+  }
+  .pillar-desc { font-size: .9rem; color: #888; line-height: 1.65; }
+
+  /* ── PROGRAMS ── */
+  #programs { background: var(--paper); }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem; margin-top: 3rem;
+  }
+  .program-card {
+    background: white; border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    transition: transform .25s, box-shadow .25s;
+    border-top: 4px solid var(--saffron);
+  }
+  .program-card:nth-child(2) { border-top-color: var(--rust); }
+  .program-card:nth-child(3) { border-top-color: var(--sage); }
+  .program-card:nth-child(4) { border-top-color: #6a88c4; }
+  .program-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+  .program-header {
+    padding: 2rem 2rem 1.2rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .program-icon {
+    width: 52px; height: 52px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+    background: var(--cream);
+  }
+  .program-meta {}
+  .program-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: .65rem; color: var(--mid);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: .3rem;
+  }
+  .program-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700; color: var(--ink);
+    line-height: 1.2;
+  }
+  .program-body { padding: 0 2rem 2rem; }
+  .program-desc { font-size: .9rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.2rem; }
+  .program-features { list-style: none; }
+  .program-features li {
+    font-size: .85rem; color: var(--ink);
+    padding: .3rem 0; display: flex; align-items: center; gap: .5rem;
+  }
+  .program-features li::before { content: '→'; color: var(--saffron); font-size: .9rem; }
+
+  /* ── IMPACT ── */
+  #impact {
+    background: linear-gradient(135deg, var(--rust) 0%, #8b2a18 100%);
+    color: white;
+  }
+  #impact h2 { color: white; }
+  #impact .lead { color: rgba(255,255,255,.75); }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; margin-top: 3rem;
+  }
+  .impact-stat {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 4px;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    transition: background .2s;
+  }
+  .impact-stat:hover { background: rgba(255,255,255,.18); }
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--saffron);
+    display: block; line-height: 1;
+  }
+  .impact-label {
+    font-size: .82rem; margin-top: .5rem;
+    color: rgba(255,255,255,.8); letter-spacing: .04em;
+  }
+
+  /* ── TEAM ── */
+  #team { background: var(--cream); }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem; margin-top: 3rem;
+  }
+  .team-card {
+    background: white; border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    transition: transform .25s;
+  }
+  .team-card:hover { transform: translateY(-4px); }
+  .team-avatar {
+    height: 180px; background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .team-avatar::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.4));
+  }
+  .team-info { padding: 1.2rem 1rem 1.5rem; }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+  }
+  .team-role {
+    font-family: 'Space Mono', monospace;
+    font-size: .68rem; color: var(--mid);
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-top: .3rem;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--paper); }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem; margin-top: 3rem;
+  }
+  .testi-card {
+    background: var(--ink);
+    border-radius: 4px; padding: 2rem;
+    position: relative;
+  }
+  .testi-quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--saffron);
+    opacity: .2; line-height: .6;
+    position: absolute; top: 1.2rem; left: 1.8rem;
+    pointer-events: none;
+  }
+  .testi-text {
+    font-size: .95rem; color: #ccc;
+    line-height: 1.75; margin-top: 1rem;
+    position: relative; z-index: 1;
+  }
+  .testi-person {
+    display: flex; align-items: center; gap: .8rem;
+    margin-top: 1.5rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--saffron);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .testi-name {
+    font-family: 'Space Mono', monospace;
+    font-size: .78rem; color: var(--cream); font-weight: 700;
+  }
+  .testi-from { font-size: .75rem; color: #666; margin-top: .1rem; }
+
+  /* ── VOLUNTEER ── */
+  #volunteer {
+    background: var(--cream);
+  }
+  .vol-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5vw; align-items: start;
+  }
+  .vol-form-wrap {
+    background: white; border-radius: 6px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  }
+  .vol-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--mid);
+    margin-bottom: .4rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: .75rem 1rem;
+    border: 1.5px solid #ddd; border-radius: 3px;
+    font-family: 'DM Sans', sans-serif; font-size: .95rem;
+    color: var(--ink); background: var(--paper);
+    transition: border-color .2s;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none; border-color: var(--saffron);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit {
+    width: 100%; padding: .9rem;
+    background: var(--ink); color: var(--cream);
+    border: none; border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: .85rem; font-weight: 700; letter-spacing: .08em;
+    cursor: pointer; transition: background .2s;
+    text-transform: uppercase;
+  }
+  .form-submit:hover { background: var(--saffron); color: var(--ink); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); }
+  #contact .section-tag { color: var(--saffron); }
+  #contact h2 { color: var(--cream); }
+  #contact .lead { color: #888; }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5vw; margin-top: 3rem;
+  }
+  .contact-info {}
+  .contact-item {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  .contact-icon {
+    width: 48px; height: 48px; border-radius: 3px;
+    background: rgba(244,169,22,.12);
+    border: 1px solid rgba(244,169,22,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-detail-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .7rem; color: var(--saffron);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: .2rem;
+  }
+  .contact-detail-val {
+    font-size: .95rem; color: var(--cream); line-height: 1.5;
+  }
+  .contact-form-wrap {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 6px; padding: 2.5rem;
+  }
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.15);
+    color: var(--cream);
+  }
+  .contact-form .form-group input:focus,
+  .contact-form .form-group textarea:focus {
+    border-color: var(--saffron);
+  }
+  .contact-form .form-group label { color: #888; }
+  .contact-submit {
+    width: 100%; padding: .9rem;
+    background: var(--saffron); color: var(--ink);
+    border: none; border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: .85rem; font-weight: 700; letter-spacing: .08em;
+    cursor: pointer; transition: background .2s;
+    text-transform: uppercase;
+  }
+  .contact-submit:hover { background: #ffbf30; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505; color: #666;
+    padding: 4rem 5vw 2rem;
+    border-top: 3px solid var(--rust);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand {}
+  .footer-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem; color: var(--cream);
+    letter-spacing: .08em; margin-bottom: .8rem;
+    display: block;
+  }
+  .footer-logo span { color: var(--saffron); }
+  .footer-tagline { font-size: .85rem; line-height: 1.65; max-width: 260px; }
+  .footer-heading {
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem; text-transform: uppercase;
+    letter-spacing: .1em; color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: .5rem; }
+  .footer-links a {
+    font-size: .85rem; color: #666; text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--saffron); }
+  .footer-socials {
+    display: flex; gap: .8rem; margin-top: 1.2rem;
+  }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 3px;
+    background: rgba(255,255,255,.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; text-decoration: none;
+    transition: background .2s;
+  }
+  .social-btn:hover { background: var(--saffron); }
+  .footer-bottom {
+    padding-top: 2rem; border-top: 1px solid #1a1a1a;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-size: .8rem;
+  }
+  .footer-bottom a { color: #666; text-decoration: none; }
+  .footer-bottom a:hover { color: var(--saffron); }
+
+  /* ── Utility ── */
+  .container { max-width: 1160px; margin: 0 auto; }
+  .mt-3 { margin-top: 3rem; }
+  .highlight-bar {
+    display: inline-block;
+    background: var(--saffron);
+    height: 4px; width: 40px;
+    margin: .8rem 0 1.6rem;
+  }
+
+  /* ── Scroll animations ── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+
+  /* ── Responsive ── */
+  @media(max-width: 900px) {
+    .about-grid,
+    .vol-inner,
+    .contact-grid { grid-template-columns: 1fr; }
+    .mission-pillars { grid-template-columns: 1fr 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .about-badge { right: 0; bottom: -1rem; }
+  }
+  @media(max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .mission-pillars { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Bright<span>Path</span> Foundation</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#volunteer" class="nav-cta">Get Involved</a>
+</nav>
+
+<!-- HERO / HOME -->
+<section id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-circle c1"></div>
+  <div class="hero-circle c2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Est. 2019 · Youth Empowerment NGO</div>
+    <h1>
+      Lighting the Path<br>
+      for Every <em>Young</em><br>
+      <span class="stroke">Mind.</span>
+    </h1>
+    <p class="hero-sub">
+      BrightPath Foundation connects underserved youth with education, mentorship, and opportunity — because every child deserves a future they can reach.
+    </p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">Explore Programs</a>
+      <a href="#volunteer" class="btn-outline">Volunteer With Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">12,400+</div>
+        <div class="stat-label">Students Reached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">84</div>
+        <div class="stat-label">Communities Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">320+</div>
+        <div class="stat-label">Volunteer Educators</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Indian States Active</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-tag">Who We Are</div>
+    <h2>Education is not a<br><span>privilege</span> — it's a right.</h2>
+    <div class="highlight-bar"></div>
+
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-frame">
+          <div class="about-img-fill">🎒</div>
+        </div>
+        <div class="about-badge">
+          5★<small>Google<br>Rated</small>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="lead">
+          Founded in 2019, BrightPath Foundation is a registered non-profit working across six Indian states to bridge the gap between quality education and marginalized communities.
+        </p>
+        <p class="lead" style="margin-top:1rem;">
+          We believe that a child's ZIP code should never determine the quality of their education. Through skill-building workshops, digital literacy programs, and scholarship initiatives, we are building a more equitable future — one student at a time.
+        </p>
+        <div class="about-values">
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">🎯</div>
+            <div class="value-title">Purpose-Driven</div>
+            <div class="value-desc">Every program we run is outcome-focused and measurable.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Community-Led</div>
+            <div class="value-desc">We co-design programs with the communities we serve.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <div class="value-icon">🌱</div>
+            <div class="value-title">Sustainable Impact</div>
+            <div class="value-desc">We train local trainers to create lasting change.</div>
+          </div>
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">🔍</div>
+            <div class="value-title">Transparent</div>
+            <div class="value-desc">100% donation accountability with public impact reports.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section id="mission">
+  <div class="mission-inner container">
+    <div class="section-tag" style="color:#888;">Mission & Vision</div>
+    <div class="mission-quote reveal">
+      "Our mission is to ensure that every child — regardless of gender, caste, geography, or economic background — has access to quality education and the tools to build a dignified life."
+    </div>
+    <div class="mission-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Access</div>
+        <div class="pillar-desc">Removing financial, geographic, and social barriers that keep children out of classrooms.</div>
+      </div>
+      <div class="pillar reveal reveal-delay-1">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Quality</div>
+        <div class="pillar-desc">Delivering high-quality, contextually relevant learning materials and trained facilitators.</div>
+      </div>
+      <div class="pillar reveal reveal-delay-2">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Equity</div>
+        <div class="pillar-desc">Prioritizing girls, tribal communities, and children with disabilities in all programs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS / SERVICES -->
+<section id="programs">
+  <div class="container">
+    <div class="section-tag">What We Do</div>
+    <h2>Programs Built for<br><span>Real Impact</span></h2>
+    <p class="lead">Our four flagship programs address education at every stage — from foundational literacy to career readiness.</p>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-header">
+          <div class="program-icon">📚</div>
+          <div class="program-meta">
+            <div class="program-tag">Foundation</div>
+            <div class="program-name">Padhega India Initiative</div>
+          </div>
+        </div>
+        <div class="program-body">
+          <p class="program-desc">Remedial literacy and numeracy camps for out-of-school children aged 6–14. Operating in 40+ government schools across Rajasthan, MP and UP.</p>
+          <ul class="program-features">
+            <li>After-school learning centres</li>
+            <li>Bilingual learning materials</li>
+            <li>Monthly progress assessments</li>
+            <li>Parent community workshops</li>
+          </ul>
+        </div>
+      </div>
+      <div class="program-card reveal reveal-delay-1">
+        <div class="program-header">
+          <div class="program-icon">💻</div>
+          <div class="program-meta">
+            <div class="program-tag">Digital Skills</div>
+            <div class="program-name">DigiDisha Program</div>
+          </div>
+        </div>
+        <div class="program-body">
+          <p class="program-desc">Digital literacy bootcamps for adolescents from low-income families. From basic device usage to coding fundamentals and online safety.</p>
+          <ul class="program-features">
+            <li>Tablet & laptop training labs</li>
+            <li>Basic coding with Scratch & Python</li>
+            <li>Cyber safety curriculum</li>
+            <li>Career guidance sessions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="program-card reveal reveal-delay-2">
+        <div class="program-header">
+          <div class="program-icon">👩‍🎓</div>
+          <div class="program-meta">
+            <div class="program-tag">Girls Education</div>
+            <div class="program-name">Udaan – Girls Rise Program</div>
+          </div>
+        </div>
+        <div class="program-body">
+          <p class="program-desc">A holistic empowerment program for girls aged 13–18 at risk of school dropout, combining education with menstrual health, life skills, and leadership.</p>
+          <ul class="program-features">
+            <li>Scholarship support</li>
+            <li>Menstrual health education</li>
+            <li>Leadership & public speaking</li>
+            <li>Safe space community groups</li>
+          </ul>
+        </div>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-header">
+          <div class="program-icon">🛠️</div>
+          <div class="program-meta">
+            <div class="program-tag">Livelihood</div>
+            <div class="program-name">SkillBridge Vocational</div>
+          </div>
+        </div>
+        <div class="program-body">
+          <p class="program-desc">3–6 month vocational training courses for school dropouts aged 16–22 in high-demand trades: tailoring, electrical work, and digital services.</p>
+          <ul class="program-features">
+            <li>Industry-certified training</li>
+            <li>Soft skills & interview prep</li>
+            <li>Placement assistance</li>
+            <li>Micro-finance linkages</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="container">
+    <div class="section-tag" style="color: rgba(255,255,255,.5);">Our Impact</div>
+    <h2>Numbers That Tell<br><span style="color:#ffbf30;">The Real Story</span></h2>
+    <p class="lead">Since 2019, our programs have created measurable, lasting change in the lives of young people across India.</p>
+    <div class="impact-grid">
+      <div class="impact-stat reveal">
+        <span class="impact-num">12,400+</span>
+        <div class="impact-label">Children Educated</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-1">
+        <span class="impact-num">78%</span>
+        <div class="impact-label">School Retention Rate</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-2">
+        <span class="impact-num">2,300+</span>
+        <div class="impact-label">Girls Supported</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-3">
+        <span class="impact-num">₹4.2Cr</span>
+        <div class="impact-label">Scholarships Disbursed</div>
+      </div>
+      <div class="impact-stat reveal">
+        <span class="impact-num">84</span>
+        <div class="impact-label">Villages Covered</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-1">
+        <span class="impact-num">1,100+</span>
+        <div class="impact-label">Vocational Graduates</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-2">
+        <span class="impact-num">320+</span>
+        <div class="impact-label">Active Volunteers</div>
+      </div>
+      <div class="impact-stat reveal reveal-delay-3">
+        <span class="impact-num">96%</span>
+        <div class="impact-label">Donor Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="section-tag">Meet The People</div>
+    <h2>Driven by <span>Passion,</span><br>Guided by Purpose</h2>
+    <p class="lead">Our team of educators, social workers, and technologists share one common belief: every child matters.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:#1a1207;">🌟</div>
+        <div class="team-info">
+          <div class="team-name">Priya Sharma</div>
+          <div class="team-role">Founder & Executive Director</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar" style="background:#071a12;">🎓</div>
+        <div class="team-info">
+          <div class="team-name">Arjun Mehta</div>
+          <div class="team-role">Director of Education</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar" style="background:#1a0707;">💡</div>
+        <div class="team-info">
+          <div class="team-name">Fatima Khan</div>
+          <div class="team-role">Head of Programs</div>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar" style="background:#07101a;">🤝</div>
+        <div class="team-info">
+          <div class="team-name">Rohit Gupta</div>
+          <div class="team-role">Partnerships Lead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-tag">Voices of Change</div>
+    <h2>Stories That <span>Inspire</span> Us</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">
+          The DigiDisha program changed my life. I had never used a computer before. Today I run a small data entry business from home and support my family.
+        </p>
+        <div class="testi-person">
+          <div class="testi-avatar">👩</div>
+          <div>
+            <div class="testi-name">Sunita Bairwa</div>
+            <div class="testi-from">DigiDisha Graduate, Jaipur</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">
+          As a government school teacher, I have seen dozens of NGOs come and go. BrightPath is different. They actually stay, follow up, and adapt when things don't work.
+        </p>
+        <div class="testi-person">
+          <div class="testi-avatar">👨‍🏫</div>
+          <div>
+            <div class="testi-name">Ramesh Yadav</div>
+            <div class="testi-from">Teacher, Sawai Madhopur</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">
+          The Udaan program gave me confidence I never had. I was about to be married off at 15. Now I'm in Class 11 and want to become a doctor.
+        </p>
+        <div class="testi-person">
+          <div class="testi-avatar">🌸</div>
+          <div>
+            <div class="testi-name">Kavya Meena</div>
+            <div class="testi-from">Udaan Beneficiary, Tonk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="container">
+    <div class="section-tag">Join Us</div>
+    <div class="vol-inner">
+      <div>
+        <h2>Your Skills Can Change<br>a <span>Child's Future</span></h2>
+        <div class="highlight-bar"></div>
+        <p class="lead">Whether you're a teacher, designer, developer, doctor, or student — there is a role for you at BrightPath Foundation.</p>
+        <div style="margin-top:2rem;">
+          <div class="contact-item">
+            <div class="contact-icon" style="background:rgba(90,122,94,.1); border-color:rgba(90,122,94,.3);">🏫</div>
+            <div>
+              <div class="contact-detail-label" style="color:var(--sage);">Teaching Volunteers</div>
+              <div class="contact-detail-val" style="color:var(--ink);">Conduct weekend or after-school literacy and digital skills sessions.</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:rgba(200,75,49,.1); border-color:rgba(200,75,49,.3);">🎨</div>
+            <div>
+              <div class="contact-detail-label" style="color:var(--rust);">Creative Professionals</div>
+              <div class="contact-detail-val" style="color:var(--ink);">Help us design materials, social media content, and annual reports.</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:rgba(244,169,22,.1); border-color:rgba(244,169,22,.3);">💰</div>
+            <div>
+              <div class="contact-detail-label" style="color:var(--saffron);">Corporate Partners</div>
+              <div class="contact-detail-val" style="color:var(--ink);">CSR partnerships, funding, and employee volunteering programs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vol-form-wrap reveal">
+        <div class="vol-form-title">Get Involved Today</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Aryan">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Sharma">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 9XXXXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>I Want to Help With</label>
+          <select>
+            <option>Teaching / Tutoring</option>
+            <option>Digital Skills Training</option>
+            <option>Content & Design</option>
+            <option>Fundraising</option>
+            <option>CSR / Corporate</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Yourself</label>
+          <textarea rows="3" placeholder="Your background, skills, and availability..."></textarea>
+        </div>
+        <button class="form-submit">Submit Application →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">Contact Us</div>
+    <h2>Let's Build<br>Something <span style="color:var(--saffron); font-style:italic;">Together</span></h2>
+    <p class="lead">Reach out for partnerships, media inquiries, donations, or just to say hello.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Office Address</div>
+            <div class="contact-detail-val">BrightPath Foundation,<br>C-12 Malviya Nagar, Jaipur — 302017<br>Rajasthan, India</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-val">+91 98765 43210<br>Mon – Sat, 9am – 6pm IST</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val">hello@brightpath.org.in<br>partners@brightpath.org.in</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Registered Under</div>
+            <div class="contact-detail-val">Societies Registration Act, 1860<br>FCRA Registered · 80G & 12A Certified</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <div class="vol-form-title" style="color:var(--cream); font-size:1.4rem;">Send Us a Message</div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Organisation</label>
+              <input type="text" placeholder="Optional">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="Partnership / Donation / Query...">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="4" placeholder="Tell us how you'd like to connect..."></textarea>
+          </div>
+          <button class="contact-submit">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">Bright<span>Path</span> Foundation</span>
+        <p class="footer-tagline">Lighting the path for every young mind across India. Education is the most powerful tool to change the world.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">💼</a>
+          <a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Programs</div>
+        <ul class="footer-links">
+          <li><a href="#">Padhega India</a></li>
+          <li><a href="#">DigiDisha</a></li>
+          <li><a href="#">Udaan – Girls Rise</a></li>
+          <li><a href="#">SkillBridge</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Organisation</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#">Impact Reports</a></li>
+          <li><a href="#">Press & Media</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Donate Now</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#">CSR Partnership</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 BrightPath Foundation. All rights reserved. CIN: U85300RJ2019NPL999999</span>
+      <span>Made with ❤️ for the children of India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth active nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? '#f4a916' : '';
+  });
+});
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.impact-num, .stat-num').forEach(el => {
+    const txt = el.textContent;
+    // just add a shimmer effect on scroll
+    el.style.opacity = '0';
+    el.style.transform = 'scale(.8)';
+    el.style.transition = 'opacity .5s, transform .5s';
+    setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'scale(1)'; }, 200);
+  });
+}
+const impactSection = document.querySelector('#impact');
+let counted = false;
+window.addEventListener('scroll', () => {
+  if(!counted && impactSection && window.scrollY > impactSection.offsetTop - window.innerHeight * .8) {
+    counted = true;
+    animateCounters();
+  }
+});
+</script>
+</body>
+</html>
